@@ -8,7 +8,7 @@ int main(void) {
     return (1);
   }
   loadImage();
-  loadMedia(instance);
+  loadMedia(&instance);
   while (running) {
     SDL_SetRenderDrawColor(instance.renderer, 0xFF, 0xFF, 0xFF, 0xFF);
     if (poll_events() == 1) {
@@ -18,6 +18,6 @@ int main(void) {
     SDL_RenderCopy(instance.renderer, instance.texture, NULL, NULL);
     SDL_RenderPresent(instance.renderer);
   }
-  destroy(instance);
+  destroy(&instance);
   return (0);
 }

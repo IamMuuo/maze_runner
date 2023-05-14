@@ -1,9 +1,9 @@
 #include "../headers/main.h"
 
-void loadMedia(SDL_Instance instance) {
+void loadMedia(SDL_Instance *instance) {
 
-  instance.texture = loadTexture("/home/ernest/personal/maze_runner/assets/textures/wood.png", instance);
-  if (instance.texture == NULL) {
+  instance->texture = loadTexture("/home/ernest/personal/maze_runner/assets/textures/eagle.png", instance);
+  if (instance->texture == NULL) {
     fprintf(stderr, "Could not load textures image: %s\n", IMG_GetError());
   }
 }
@@ -15,14 +15,14 @@ void loadImage() {
   }
 }
 
-SDL_Texture *loadTexture(char *path, SDL_Instance instance) {
+SDL_Texture *loadTexture(char *path, SDL_Instance *instance) {
 
   SDL_Surface *loadedSurface = IMG_Load(path);
   SDL_Texture *finalTexture = NULL;
   if (loadedSurface == NULL)
     fprintf(stderr, "Could not load image: %s\n", IMG_GetError());
 
-  finalTexture = SDL_CreateTextureFromSurface(instance.renderer, loadedSurface);
+  finalTexture = SDL_CreateTextureFromSurface(instance->renderer, loadedSurface);
   if (finalTexture == NULL) {
     fprintf(stderr, "Could not create texture: %s\n", SDL_GetError());
   }

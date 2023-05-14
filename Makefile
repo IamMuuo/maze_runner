@@ -9,7 +9,7 @@ OBJECTS := $(patsubst $(SRC_DIR)/%.c, $(BIN_DIR)/%.o, $(SOURCES))
 CFLAGS := -Wall -Werror -Wextra -pedantic $(shell sdl2-config --cflags)
 LIBS := $(shell sdl2-config --libs) -lSDL2_ttf -lSDL2_image
 
-EXECUTABLE := $(BIN_DIR)/output
+EXECUTABLE := $(BIN_DIR)/maze_runner
 
 all: $(EXECUTABLE)
 

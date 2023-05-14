@@ -21,8 +21,8 @@ typedef struct SDL_Instance {
 
 int init_instance(SDL_Instance *);
 int poll_events();
-SDL_Texture *loadTexture(char *path, SDL_Instance instance);
+SDL_Texture *loadTexture(char *path, SDL_Instance *instance);
 void loadImage();
-void loadMedia(SDL_Instance instance);
-void destroy(SDL_Instance instance);
+void loadMedia(SDL_Instance *instance);
+void destroy(SDL_Instance *instance);
 #endif

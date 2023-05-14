@@ -1,7 +1,7 @@
 #include "../headers/main.h"
 
-const int SCREEN_WIDTH = 720;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 960;
+const int SCREEN_HEIGHT = 540;
 
 /**
  * Initializes the SDL instance, creating a window and renderer.
@@ -43,14 +43,14 @@ int init_instance(SDL_Instance *instance) {
  * @instance: SDL_Instance
  * @return: none
  */
-void destroy(SDL_Instance instance) {
-  SDL_DestroyTexture(instance.texture);
-  instance.texture = NULL;
+void destroy(SDL_Instance *instance) {
+  SDL_DestroyTexture(instance->texture);
+  instance->texture = NULL;
 
-  SDL_DestroyRenderer(instance.renderer);
-  SDL_DestroyWindow(instance.window);
-  instance.renderer = NULL;
-  instance.window = NULL;
+  SDL_DestroyRenderer(instance->renderer);
+  SDL_DestroyWindow(instance->window);
+  instance->renderer = NULL;
+  instance->window = NULL;
   IMG_Quit();
   SDL_Quit();
 }
