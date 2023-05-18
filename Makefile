@@ -7,7 +7,7 @@ SOURCES := $(wildcard $(SRC_DIR)/*.c)
 OBJECTS := $(patsubst $(SRC_DIR)/%.c, $(BIN_DIR)/%.o, $(SOURCES))
 
 CFLAGS := -Wall -Werror -Wextra -pedantic $(shell sdl2-config --cflags)
-LIBS := $(shell sdl2-config --libs) -lSDL2_ttf -lSDL2_image
+LIBS := $(shell sdl2-config --libs) -lSDL2_ttf -lSDL2_image -lm
 
 EXECUTABLE := $(BIN_DIR)/maze_runner
 
