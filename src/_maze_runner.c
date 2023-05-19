@@ -36,7 +36,7 @@ int main(void) {
   }
   loadImage();
   while (running) {
-    if (renderMap(worldMap, &instance, player) == 1) {
+    if (renderMap(worldMap, &instance/*, player*/) == 1) {
       running = false;
     }
   }

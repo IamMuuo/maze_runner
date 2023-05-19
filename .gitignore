@@ -1,1 +1,6 @@
-bin/*
+*.swp
+*.bak
+*.orig
+*.o 
+*.un~
+build/
