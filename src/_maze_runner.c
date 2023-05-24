@@ -29,14 +29,13 @@ int worldMap[MAPSIDES][MAPSIDES] = {
 int main(void) {
   bool running = true;
   SDL_Instance instance;
-  Player player = {17, 6};
 
   if (init_instance(&instance) != 0) {
     return (1);
   }
   loadImage();
   while (running) {
-    if (renderMap(worldMap, &instance/*, player*/) == 1) {
+    if (renderMap(worldMap, &instance) == 1) {
       running = false;
     }
   }

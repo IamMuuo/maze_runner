@@ -3,4 +3,6 @@
 *.orig
 *.o 
 *.un~
+CMakeCache.txt
+CMakeFiles/
 build/
