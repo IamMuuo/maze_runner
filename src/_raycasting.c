@@ -1,5 +1,13 @@
 #include "../headers/maze_runner.h"
 
+/**
+ * Performs initial calculations for raycasting at the given screen coordinate.
+ * It calculates the ray direction, map coordinates, delta distances,
+ * step values, and side distances required for the raycasting algorithm.
+ *
+ * @param rc Pointer to the raycaster structure.
+ * @param x The x-coordinate of the screen.
+ */
 void initial_calc(raycaster_t *rc, int x) {
   double cameraX;
 
@@ -28,6 +36,14 @@ void initial_calc(raycaster_t *rc, int x) {
   }
 }
 
+/**
+ * Performs the DDA (Digital Differential Analysis) algorithm for raycasting.
+ *
+ * Determines ray intersection with map grid, updating raycaster structure
+ * with map coordinates and side information.
+ *
+ * @param rc Pointer to the raycaster structure.
+ */
 void perform_dda(raycaster_t *rc) {
   int hit;
 
@@ -48,6 +64,14 @@ void perform_dda(raycaster_t *rc) {
   }
 }
 
+/**
+ * Calculates wall height for rendering, updating raycaster structure.
+ *
+ * Determines the height of the wall to be rendered based on the perpendicular
+ * wall distance and updates the raycaster structure with drawing parameters.
+ *
+ * @param rc Pointer to the raycaster structure.
+ */
 void calc_wall_height(raycaster_t *rc) {
   int line_height;
 
@@ -68,6 +92,16 @@ void calc_wall_height(raycaster_t *rc) {
   }
 }
 
+/**
+ * Draws vertical line on screen using SDL rendering.
+ * The color of the line is determined by the wall color and perp_wall_dist
+ * using night_effect function.
+ * If side flag is set, the color is halved.
+ *
+ * @param instance Pointer to SDL_Instance structure.
+ * @param rc Pointer to raycaster structure.
+ * @param x The x-coordinate of the line to be drawn.
+ */
 void draw_vertical_line(SDL_Instance *instance, raycaster_t *rc, int x) {
   SDL_Color color;
   color =

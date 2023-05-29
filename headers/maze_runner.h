@@ -22,7 +22,7 @@
 #define CELL_SIZE SCREEN_WIDTH / MAPSIDES
 #define MV_SPEED 0.15
 #define ROT_SPEED 0.1745
-#define AMBIENT_LIGHT 5
+#define AMBIENT_LIGHT 6
 
 #define RED 0xFF0000
 #define GREEN 0x00FF00

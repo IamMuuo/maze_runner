@@ -1,15 +1,14 @@
 #include "../headers/maze_runner.h"
 
-// Will work one once RayCasting is done
-
-/* void loadFlooring(SDL_Instance *instance) {
-
-  instance->texture = loadTexture(
-      "/home/ernest/personal/maze_runner/assets/textures/wood.png", instance);
-  if (instance->texture == NULL) {
-    fprintf(stderr, "Could not load textures image: %s\n", IMG_GetError());
-  }
-}
+// void loadFlooring(SDL_Instance *instance) {
+//
+//   instance->texture = loadTexture(
+//       "/home/ernest/personal/maze_runner/assets/textures/wood.png",
+//       instance);
+//   if (instance->texture == NULL) {
+//     fprintf(stderr, "Could not load textures image: %s\n", IMG_GetError());
+//   }
+// }
 
 void loadWalls(SDL_Instance *instance) {
 
@@ -19,17 +18,18 @@ void loadWalls(SDL_Instance *instance) {
   if (instance->texture == NULL) {
     fprintf(stderr, "Could not load textures image: %s\n", IMG_GetError());
   }
-} */
+}
 
-// void load_image() {
-//   int imgFlags = IMG_INIT_PNG;
-//   if (!(IMG_Init(imgFlags) & imgFlags)) {
-//     fprintf(stderr, "Could not load image: %s\n", IMG_GetError());
-//   }
-// }
+void load_image() {
+  int imgFlags = IMG_INIT_PNG;
+  if (!(IMG_Init(imgFlags) & imgFlags)) {
+    fprintf(stderr, "Could not load image: %s\n", IMG_GetError());
+  }
+}
 
 /*
  * Loads a texture from the assets
+ *
  * @path: path to the texture location(../assets/)
  * @instance: an SDL instance
  * @Return: SDL_Texture
@@ -54,5 +54,3 @@ SDL_Texture *loadTexture(char *path, SDL_Instance *instance) {
 
   return finalTexture;
 }
-
-

@@ -1,8 +1,14 @@
 #include "../headers/maze_runner.h"
 
-// Create a static player
+/**
+ * Handles player movement based on user input.
+ *
+ * Updates player's position, direction, and plane based on user input events.
+ *
+ * @param rc Pointer to raycaster structure.
+ * @return 1 if quit event is triggered, 0 otherwise.
+ */
 int handle_movement(raycaster_t *rc) {
-
   SDL_Event event;
   double oldDirX;
   double oldPlaneX;
@@ -64,15 +70,18 @@ int handle_movement(raycaster_t *rc) {
 void render_frames(SDL_Instance *instance) {
   SDL_RenderPresent(instance->renderer);
   SDL_SetRenderDrawColor(instance->renderer, 0, 0, 0, 0);
+
   SDL_RenderClear(instance->renderer);
 }
 
 /**
- * Initializes the SDL instance, creating a window and renderer.
+ * Initializes the SDL instance by creating a window and renderer.
+ * It also sets up the initial values for the raycaster structure.
  *
- * @param instance - Pointer to an SDL_Instance struct.
+ * @param instance Pointer to the SDL_Instance structure.
+ * @param rc       Pointer to the raycaster structure.
  * @return 0 if successful, 1 if there was an error.
- * */
+ */
 int init_instance(SDL_Instance *instance, raycaster_t *rc) {
   if (SDL_Init(SDL_INIT_VIDEO) != 0) {
     fprintf(stderr, "Initialization error: %s\n", SDL_GetError());
@@ -100,8 +109,8 @@ int init_instance(SDL_Instance *instance, raycaster_t *rc) {
   }
   instance->surface = SDL_GetWindowSurface(instance->window);
 
-  rc->player_pos_x = 22;
-  rc->player_pos_y = 12;
+  rc->player_pos_x = 10;
+  rc->player_pos_y = 17;
   rc->player_dir_x = -1;
   rc->player_dir_y = 0;
   rc->player_plane_x = 0;
@@ -110,10 +119,13 @@ int init_instance(SDL_Instance *instance, raycaster_t *rc) {
   return (0);
 }
 
-/*
- * destroy - frees all the unused resources
- * @instance: SDL_Instance
- * @return: void
+/**
+ * Destroys SDL resources and performs cleanup.
+ *
+ * Destroys the SDL texture, renderer, window, and performs cleanup of the SDL
+ * and SDL_image libraries.
+ *
+ * @param instance Pointer to the SDL_Instance structure.
  */
 void destroy(SDL_Instance *instance) {
   SDL_DestroyTexture(instance->texture);
